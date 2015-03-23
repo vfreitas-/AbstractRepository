@@ -1,4 +1,4 @@
-package ifsp.dao;
+package ifsp.repository;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
 
 /**
  * 
- * JpaDAO abstract class, to use when you can't inject the EntityManager
+ * AbstractRepository abstract class, to use when you can't inject the EntityManager
  * - Lack of a trully Java EE Container(@PersistentContext)
  * - You can't use CDI(@ViewScoped)  
  * 
@@ -53,7 +53,7 @@ abstract class AbstractRepository<K , E> implements Repositoriable<K ,E>, Serial
      * Builder, it gets the second(entity) parameterized type and
      * sets to entityClass variable.
      */
-    public JpaDAO()
+    public AbstractRepository()
     {
         ParameterizedType genericSuperClass 
                 = (ParameterizedType) getClass().getGenericSuperclass();
